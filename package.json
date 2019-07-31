@@ -1,0 +1,15 @@
+{
+  "name": "listando",
+  "version": "1.0.0",
+  "description": "listar resultados de somas com algum nome.",
+  "main": "app/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "author": "Lucas Souza",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^6.0.0"
+  }
+}
