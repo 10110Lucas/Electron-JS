@@ -2,47 +2,26 @@
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="style/css/bootstrap.css">
-        <link rel="stylesheet" href="style/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="style/css/estilo.css"/>
-        <title>Lista</title>
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <title>Menu</title>
     </head>
-    <body>
-        <div class="container">
-            <h1>Inserir Dados</h1>
-            <hr>
-            <input id="nome" type="text" />
-            <input id="numero1" type="text" />
-            <input id="numero2" type="text" />
-            <hr>
-            <button id="calcular" class="btn btn-outline-success">Adicionar</button>
-            <hr>
-                <table id="tabela-principal" class="table table-dark">
-                    <thead>
-                        <tr>
-                            <td scope="col">Name</td>
-                            <td scope="col">N1</td>
-                            <td scope="col">N2</td>
-                            <td scope="col">Total</td>
-                        </tr>
-                    </thead>
-                    <tbody id="tabela">
-
-                    </tbody>
-                </table>
-            <hr>
-            <div class="row container">
-                <div class="col-md-10">
-                    <button id="minimizar" class="btn btn-outline-danger">Diminuir</button>
-                    <button id="maximizar" class="btn btn-outline-danger">Maximizar</button>
-                </div>
-                <div class="col-md-2">
-                    <button id="fechar" class="btn btn-outline-danger">Fechar</button>
-                </div>
+    <body style="background-color:#e65100;">
+        <div class="row">
+            <div class="col s12 m6 z-depth-5" style="background-color:#212121; color:#FFFFFF">
+                <h1 class="center-align">Menu</h1>
             </div>
-            <hr>            
         </div>
-        <script src="controller/controller.js"></script>
-        <script src="model/Tabela.js"></script>
+        <div class="row">
+            <div class="col s12 m6 z-depth-5 center-align" style="background-color:#212121; color:#FFFFFF">
+                <button id="janela" class="waves-effect waves-light btn">Criar Pedido</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m6 z-depth-5 center-align" style="background-color:#212121; color:#FFFFFF">
+                <button id="janela-principal" class="waves-effect waves-light btn">Fechar e Sair</button>
+            </div>
+        </div>
+
+        <script src="nova-janela/js/novaTela.js"></script>
     </body>
 </html>
