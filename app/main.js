@@ -1,37 +1,22 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 
-let win;
+//-------------------------- Telas ---------------------------------------------------------------
 
+let win;
 app.on('ready', () => {
   win = new BrowserWindow({
     titleBarStyle: 'hidden',
-    width: 800,
-    height: 600,
     show: false,
     webPreferences: {
       nodeIntegration: true
     }
   });
-  
-  win.loadFile('app/index.html');
-
-  win.once('ready-to-show', () =>{ win.show() });
+  win.loadFile('app/view/index.html');
+  win.once('ready-to-show', () =>{ win.show(); win.maximize(); });
 });
-
-ipcMain.on('fechar-app', () => {
-  win.close();
-})
-
-app.on('window-all-closed', () => {
-  app.quit();
-});
-
-//-------------------------------------------------------------------------------------------------------------
 
 let novaJanelaAberta = null;
-
 ipcMain.on('abrir-nova-janela', () => {
-
   if(novaJanelaAberta == null){
     novaJanelaAberta = new BrowserWindow({
       width: 300,
@@ -44,12 +29,33 @@ ipcMain.on('abrir-nova-janela', () => {
     });
     novaJanelaAberta.on('closed', () => {
       novaJanelaAberta = null;
-    })
+    });
   }
-  
-  novaJanelaAberta.loadURL(`file://${__dirname}/criacao.html`);
+  novaJanelaAberta.loadURL(`file://${__dirname}/view/criacao.html`);
 });
+
+//----------------------------------- Interações das janelas --------------------------------------
 
 ipcMain.on('fechar-a-janela', () => {
   novaJanelaAberta.close();
+});
+
+ipcMain.on('fechar-app', () => {
+  win.close();
+});
+
+ipcMain.on('fechar-app2', () => {
+  win.close();
+});
+
+ipcMain.on('maximizar-app', () => {
+  win.maximize();
+});
+
+ipcMain.on('minimizar-app', () => {
+  win.unmaximize();
+});
+
+app.on('window-all-closed', () => {
+  app.quit();
 });
