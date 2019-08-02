@@ -36,19 +36,19 @@
                         <h1>Inserir Dados</h1>
                         <hr>
                         <div class="row" style="padding-left:30px;">
-                            <input id="nome" type="text" style="width:90px;color:#FFFFFF;padding:0px 10px 0px 10px;" placeholder="Aluno"/>
-                            <input id="numero1" type="text" style="width:130px;color:#FFFFFF;padding:0px 10px 0px 10px;" placeholder="Nota 1"/>
-                            <input id="numero2" type="text" style="width:130px;color:#FFFFFF;padding:0px 10px 0px 10px;" placeholder="Nota 2"/>
+                            <input id="nome" type="text" style="width:90px;color:#FFFFFF;padding:0px 10px 0px 10px;" placeholder="Nome:"/>
+                            <input id="email" type="text" style="width:130px;color:#FFFFFF;padding:0px 10px 0px 10px;" placeholder="Email:"/>
+                            <input id="telefone" type="text" style="width:130px;color:#FFFFFF;padding:0px 10px 0px 10px;" placeholder="Telefone:"/>
                             <button id="calcular" class="btn btn-outline-success">Adicionar</button>
                         </div>
                         <hr>
                             <table id="tabela-principal" class="table table-dark">
                                 <thead>
                                     <tr>
-                                        <td scope="col">Aluno</td>
-                                        <td scope="col">N1</td>
-                                        <td scope="col">N2</td>
-                                        <td scope="col">Total</td>
+                                        <td scope="col">Nome</td>
+                                        <td scope="col">Email</td>
+                                        <td scope="col">Telefone</td>
+                                        <td scope="col">Info</td>
                                     </tr>
                                 </thead>
                                 <tbody id="tabela">
@@ -68,6 +68,7 @@
         </div>
 
         <script src="../controller/novaTela.js"></script>
+        <script src="../dao/PessoaDAO.js"></script>
         <script src="../model/Tabela.js"></script>
         <script src="../controller/TabelaControll.js"></script>
     </body>

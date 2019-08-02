@@ -1,10 +1,10 @@
 class Tabela {
 
-    constructor(nome, numero1, numero2){
+    constructor(nome, email, telefone){
 
         this._nome = nome;
-        this._numero1 = numero1;
-        this._numero2 = numero2;
+        this._email = email;
+        this._telefone = telefone;
         this._total = numero1 + numero2;
 
         //Object.freeze(this);
@@ -14,12 +14,12 @@ class Tabela {
         return this._nome;
     }
 
-    get numero1(){
-        return this._numero1;
+    get email(){
+        return this._email;
     }
 
-    get numero2(){
-        return this._numero2;
+    get telefone(){
+        return this._telefone;
     }
 
     get total(){

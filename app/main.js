@@ -12,7 +12,7 @@ app.on('ready', () => {
     }
   });
   win.loadFile('app/view/index.html');
-  win.once('ready-to-show', () =>{ win.show(); win.maximize(); });
+  win.once('ready-to-show', () =>{ win.show(); win.maximize(); win.setMenu(null); });
 });
 
 let novaJanelaAberta = null;
