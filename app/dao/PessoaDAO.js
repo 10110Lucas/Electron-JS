@@ -1,21 +1,36 @@
-class PessoaDAO {
+const mysql = require('mysql');
 
-    constructor(){
-        this._i = 0;
-        this._id = [];
-        this._nome = [];
-        this._email = [];
-        this._telefone = [];
-    }
+const connection = mysql.createConnection({
+    host: 'localhost',
+    port: '3306',
+    user: 'root',
+    password: '',
+    database: 'pessoas'
+});
 
-    create(nome, email, telefone){
-        this._id.push(this._i + 1);
-        this._nome.push(nome);
-        this._email.push(email);
-        this._telefone.push(telefone);
-    }
-
-    listar(){
-        alert(`${this._id} \n ${this._nome} \n ${this._email} \n ${this._telefone}`);
-    }
+function consultar(){
+    connection.connect();
+    connection.query('SELECT * FROM pessoa', (error, results, fields) => {
+        if (error) throw error;
+        console.log(results);
+    });
+    connection.end();
 }
+
+function salvar(name, email, tell){
+    connection.connect();
+
+    let json = {nome: `${name}`,
+                email: `${email}`,
+                telefone: parseInt(tell)};
+
+    connection.query('INSERT INTO pessoa SET ?', json, (error, results, fields) => {
+            if (error) throw error;
+            console.log(results);
+    });
+
+    connection.end();
+}
+
+// salvar("teste0001", "james@bgr.com", "987654321");
+consultar();

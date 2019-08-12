@@ -1,0 +1,14 @@
+create database pessoas;
+use pessoas;
+
+CREATE TABLE pessoa(
+id INT AUTO_INCREMENT NOT NULL,
+nome VARCHAR(30) NOT NULL,
+email VARCHAR(40) NOT NULL,
+telefone INT(9) NOT NULL,
+PRIMARY KEY(id))
+ENGINE = InnoDB;
+
+insert into pessoa (nome, email, telefone) value ("marciano", "marciano@cideral.com", 912344321);
+
+select * from pessoa;
