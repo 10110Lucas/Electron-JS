@@ -3,6 +3,10 @@ const mysql = require('mysql');
 class PessoaDAO{
 
     constructor(){
+        this._connection = null;
+    }
+
+    banco(){
         this._connection = mysql.createConnection({
             host: 'localhost',
             port: '3306',
@@ -13,18 +17,43 @@ class PessoaDAO{
         });
     }
 
+
+
     consultar(){
-        this._connection.connect();
+        this.banco();
+        if(!this._connection.connect()){
+            this._connection.connect();
+        }
+        
+        var array = [];
+        let pessoa = null;
+
         this._connection.query('SELECT * FROM pessoa', (error, results, fields) => {
-            if (error) throw error;
-            console.log(results);
+            if (error) {
+                throw error;
+            } else if(results){
+
+                results.forEach(element => {
+                    // pessoa = new Pessoa(element.id, element.nome, element.email, element.telefone);
+                    // pessoa.armazena(pessoa);
+                    array.push(new Pessoa(element.id, element.nome, element.email, element.telefone));
+                });
+
+                console.log(array);
+                return array;
+            }
+            
         });
-        this._connection.end();
+        // return pessoa.retorno();
     }
 
-    salvar(name, email, tell){
-        this._connection.connect();
 
+
+    salvar(name, email, tell){
+        this.banco();
+        if(!this._connection.connect()){
+            this._connection.connect();
+        }
         this._connection.query('INSERT INTO pessoa (nome, email, telefone) value (?, ?, ?)', 
         [name, email, tell],
         (error, results, fields) => {
@@ -35,10 +64,6 @@ class PessoaDAO{
                 console.log('Usuário inserido com sucesso!\n', results.insertId);
             }
         });
-
         this._connection.end();
     }
-
-    // salvar("teste0001", "james@bgr.com", "987654321");
-    // consultar();
 }

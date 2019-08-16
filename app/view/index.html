@@ -8,7 +8,7 @@
     <body style="background-color:#e65100;">
         
         <div class="row">
-            <div class="col s12 m4">
+            <div class="col s12 m3">
                 <div class="row">
                     <div class="z-depth-5" style="background-color:#212121; color:#FFFFFF">
                         <h1 class="center-align">Menu</h1>
@@ -17,59 +17,49 @@
         
                 <div class="row">
                     <div class="z-depth-5" style="background-color:#212121; color:#FFFFFF">
-                        <button id="janela" class="waves-effect waves-light btn" style="width: 100%;height:100%; background-color:#212121;">Criar Pedido</button>
+                        <button id="janela-principal" class="waves-effect waves-light btn" style="width: 100%;height:100%; background-color:#212121;">Tela Principal</button>
                     </div>
                 </div>
                 
                 <div class="row">
                     <div class="z-depth-5 center-align" style="background-color:#212121; color:#FFFFFF">
-                        <button id="janela-principal" class="waves-effect waves-light btn" style="width: 100%;height:100%; background-color:#212121;">Fechar e Sair</button>
+                        <button id="janela-adicionar" class="waves-effect waves-light btn" style="width: 100%;height:100%; background-color:#212121;">Pessoas</button>
                     </div>
                 </div>
             </div>
     
-            <div class="col s6 m1 center-align" style="background-color:#212121; color:#FFFFFF"></div>
+            <!-- <div class="col s6 m1 center-align" style="background-color:#212121; color:#FFFFFF"></div> -->
 
-            <div class="col s12 m6">
-                <div class="row" style="width:130%; margin-left:-100px;">
+            <div class="col s12 m7">
+                <div class="row" style="width:127%; margin-left: 10px;">
                     <div class="z-depth-5" style="background-color:#212121; color:#FFFFFF; padding:0px 20px 20px 20px;">
-                        <h1>Inserir Dados</h1>
+                        <h1 class="center-align">Pessoas</h1>
                         <hr>
-                        <div class="row" style="padding-left:30px;">
+                        <div class="row center-align">
                             <input id="nome" type="text" style="width:90px;color:#FFFFFF;padding:0px 10px 0px 10px;" placeholder="Nome:"/>
                             <input id="email" type="text" style="width:130px;color:#FFFFFF;padding:0px 10px 0px 10px;" placeholder="Email:"/>
                             <input id="telefone" type="text" style="width:130px;color:#FFFFFF;padding:0px 10px 0px 10px;" placeholder="Telefone:"/>
-                            <button id="calcular" class="btn btn-outline-success">Adicionar</button>
+                            <button id="btnAdicionar" class="btn btn-outline-success" name="btnAdicionar">Adicionar</button>
                         </div>
                         <hr>
-                            <table id="tabela-principal" class="table table-dark">
+                            <table id="tabela-pessoas" class="table table-dark">
                                 <thead>
                                     <tr>
                                         <td scope="col">Nome</td>
                                         <td scope="col">Email</td>
                                         <td scope="col">Telefone</td>
-                                        <td scope="col">Info</td>
                                     </tr>
                                 </thead>
                                 <tbody id="tabela">
-                                        
                                 </tbody>
                             </table>
-                        <hr>
-                        <div class="row" style="padding-left:30px;">
-                            <button id="minimizar" class="btn btn-outline-danger">Diminuir</button>
-                            <button id="maximizar" class="btn btn-outline-danger">Maximizar</button>
-                            <button id="fechar" class="btn btn-outline-danger">Fechar</button>
-                        </div>
                         <hr>
                     </div>
                 </div>
             </div>
         </div>
-
-        <script src="../controller/novaTela.js"></script>
+        <script src="../model/Pessoa.js"></script>
         <script src="../dao/PessoaDAO.js"></script>
-        <script src="../model/Tabela.js"></script>
-        <script src="../controller/TabelaControll.js"></script>
+        <script src="../controll/PessoaController.js"></script>
     </body>
 </html>
