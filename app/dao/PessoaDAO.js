@@ -43,7 +43,10 @@ class PessoaDAO{
                 }, 300);
             });
 
-            query.on('end', () => this._connection.end() );
+            query.on('end', () => { 
+                this._connection.end(); 
+                this._connection.destroy();
+            });
         });
     }
 
@@ -68,7 +71,10 @@ class PessoaDAO{
                     console.log(`Usuário ${result.insertId} - ${name} inserido com sucesso!`);
                 });
 
-                query.on('end', () => { this._connection.end(); });
+                query.on('end', () => { 
+                    this._connection.end(); 
+                    this._connection.destroy();
+                });
             });
             
             this.consultar();

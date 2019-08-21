@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 
 let win = null;
 app.on('ready', () => {
@@ -17,6 +17,11 @@ app.on('ready', () => {
         //win.setWindow(null);
     });
 });
+
+// ipcMain.on('getPessoas', () => {
+//     win.show(false);
+//     win.loadFile('app/view/pessoas.html');
+// });
 
 app.on('window-all-closed', () => {
     app.quit();
