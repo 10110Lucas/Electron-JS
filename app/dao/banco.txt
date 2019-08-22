@@ -12,3 +12,5 @@ ENGINE = InnoDB;
 insert into pessoa (nome, email, telefone) value ("marciano", "marciano@cideral.com", 912344321);
 
 select * from pessoa;
+
+-- ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
